@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:trying/rasheed/pass/repass1.dart';
 import '../home_page.dart';
 // import 'verify.dart';
 import 'package:trying/pass//repass1.dart';
@@ -160,7 +161,7 @@ class  _LoginPageState extends State <LoginPagera>{
           ],
 
         ),
-        TextButton(onPressed: (){ Navigator.push(context, MaterialPageRoute(builder: (context)=>Forget()));}, child: _buildGreyText('لقد نسيت كلمة السر')),
+        TextButton(onPressed: (){ Navigator.push(context, MaterialPageRoute(builder: (context)=>raForget()));}, child: _buildGreyText('لقد نسيت كلمة السر')),
       ],
 
 

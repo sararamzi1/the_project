@@ -1,23 +1,21 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:trying/page5.dart';
 // import 'Page1.dart';
-import 'Page2.dart';
-import 'Page3.dart';
-import 'Page4.dart';
-import 'page5.dart';
-import 'drawer/drawer1.dart';
-import 'package:trying/drawer/drawer2.dart';
-import 'package:trying/drawer/drawer3.dart';
-import 'package:trying/drawer/drawer4.dart';
+import 'package:trying/rasheed/pagera2.dart';
+import 'package:trying/rasheed/pagera3.dart';
+import 'package:trying/rasheed/pagera4.dart';
+import 'package:trying/rasheed/radrawer/drawer1.dart';
+import 'package:trying/rasheed/radrawer/drawer2.dart';
+import 'package:trying/rasheed/radrawer/drawer3.dart';
+import 'package:trying/rasheed/radrawer/drawer4.dart';
 import 'package:trying/second_page.dart';
-class Start extends StatefulWidget {
+class RaStart extends StatefulWidget {
   @override
   _StartState createState() => _StartState();
 }
 
-class _StartState extends State<Start> {
+class _StartState extends State<RaStart> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   int currentIndex = 0;
 
@@ -29,23 +27,21 @@ class _StartState extends State<Start> {
         body: IndexedStack(
           index: currentIndex,
           children: [
+            Pagera2(),
             HomePage(),
-            // Page1(),
-            Page2(),
-            Page3(),
-            Page4(),
+            Pagera3(),
           ],
         ),
         bottomNavigationBar: CurvedNavigationBar(
           height: 60,
-          buttonBackgroundColor: Color(0xff6d2932),
+          buttonBackgroundColor: Color(0xff012861),
           backgroundColor: Colors.transparent,
-          color: Color(0xff6d2932),
+          color: Color(0xff012861),
           index: currentIndex,
           items: <Widget>[
+            Icon(Icons.person, size: 30, color: Colors.white),
             Icon(Icons.home, size: 30, color: Colors.white),
             Icon(Icons.settings, size: 30, color: Colors.white),
-            Icon(Icons.person, size: 30, color: Colors.white),
           ],
           onTap: (int tappedIndex) {
             setState(() {
@@ -63,13 +59,13 @@ class _StartState extends State<Start> {
                   'اسم الطالب',
                   style: TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold),
                 ),
-                decoration: BoxDecoration(color: Color(0xff8B0000)),
+                decoration: BoxDecoration(color: Color(0xff012861)),
               ),
               _createDrawerItem(context, 'برامج وتخصصات الجامعة', Drawer1()),
               _createDrawerItem(context, 'الوثائق المطلوبة', drawer2()),
               _createDrawerItem(context, 'عن الجامعة', drawer3()),
               _createDrawerItem(context, 'معايير التنسيق', drawer4()),
-              _createDrawerItem(context, 'تواصل معنا', Page4()),
+              _createDrawerItem(context, 'تواصل معنا', Pagera4()),
             ],
           ),
         ),
@@ -104,7 +100,7 @@ class _HomePageState extends State<HomePage> {
         // الهيدر
         Container(
           height: 55,
-          decoration: BoxDecoration(color: Color(0xff8B0000)),
+          decoration: BoxDecoration(color: Color(0xff012861)),
           child: Row(
             children: [
               IconButton(
@@ -142,7 +138,7 @@ class _HomePageState extends State<HomePage> {
         // CarouselSlider
         CarouselSlider(
           options: CarouselOptions(
-            height: 130,
+            height: 150,
             aspectRatio: 16 / 8,
             viewportFraction: 0.6,
             autoPlay: true,
@@ -152,26 +148,26 @@ class _HomePageState extends State<HomePage> {
             enlargeFactor: 0.5,
             reverse: true,),
           items: [
-            'assets/Screenshot_20250119_230722.jpg',
-            'assets/Screenshot_20250119_231038.jpg',
-            'assets/Screenshot_20250119_231059.jpg',].map((item){
-            return Container(
-              margin: EdgeInsets.all(8),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(25),
-                image: DecorationImage(image: AssetImage(item),
-                    fit: BoxFit.cover),
-              ),
-            );
+   'assets/rashed.jpg',
+   'assets/rashed2.jpg',
+    'assets/rashed3.jpg',].map((item){
+      return Container(
+        margin: EdgeInsets.all(8),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(25),
+          image: DecorationImage(image: AssetImage(item),
+          fit: BoxFit.cover),
+        ),
+      );
           })   .toList(),
 
-          // أضف المزيد من العناصر هن
+            // أضف المزيد من العناصر هن
         ),
         SizedBox(height: 10),
         Padding(
           padding: EdgeInsets.only(left: 150),
           child: Text(
-            'شريط الأخبار',
+            'الفهرس',
             style: TextStyle(color: Colors.black, fontSize: 20, fontWeight: FontWeight.bold),
           ),
         ),
@@ -180,14 +176,13 @@ class _HomePageState extends State<HomePage> {
         Expanded(
           child: GridView.count(
             crossAxisCount: 2,
-            mainAxisSpacing: 16,
-            crossAxisSpacing: 16,
+            mainAxisSpacing: 10,
+            crossAxisSpacing: 10,
             children: <Widget>[
-              createCard(context, 'معاملات الخريجين', 'assets/Screenshot_20250119_231120.jpg', Color(
-                  0xfffae45d), Page2()),
-              createCard(context, 'معاملات دراسية', 'assets/Screenshot_20250119_231120.jpg', Color( 0xfffae45d), Page3()),
-              createCard(context, 'معاملات ادارية', 'assets/Screenshot_20250119_230722.jpg', Color( 0xfffae45d), Page4()),
-              createCard(context, 'معاملات خاصة', 'assets/Screenshot_20250119_230722.jpg', Color( 0xfffae45d), page5()),
+              createCard(context, 'معاملات التسجيل' , Color(0xfffbaa5d), Pagera2()),
+              createCard(context, 'معاملات ادارية',  Color(0xfffbaa5d), Pagera3()),
+              createCard(context, 'معاملات خاصى',  Color(0xfffbaa5d), Pagera4()),
+
             ],
           ),
         ),
@@ -195,33 +190,32 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Widget createCard(BuildContext context, String subtitle, String imagePath, Color color, Widget page) {
+  Widget createCard(BuildContext context, String subtitle,  Color color, Widget page) {
     return GestureDetector(
-        onTap: () {
-          Navigator.push(
-            context,
-            MaterialPageRoute(builder: (context) => page),
-          );
-        },
-        child: Container(
-            decoration: BoxDecoration(
-              color: color,
-              borderRadius: BorderRadius.circular(15),
-              boxShadow: [BoxShadow(color: Colors.grey.withOpacity(0.2), spreadRadius: 2, blurRadius: 5, offset: Offset(0, 3))],
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => page),
+        );
+      },
+      child: Container(
+        height: 80,
+        width: 80,
+        decoration: BoxDecoration(
+          color: color,
+          borderRadius: BorderRadius.circular(15),
+          boxShadow: [BoxShadow(color: Colors.grey.withOpacity(0.2), spreadRadius: 2, blurRadius: 5, offset: Offset(0, 3))],
+        ),
+
+        child: Column(
+          children: [
+            Padding(
+              padding: EdgeInsets.only(top: 20.0),
+              child: Text(subtitle, style: TextStyle(fontSize: 16, color: Colors.black,fontWeight: FontWeight.bold)),
             ),
-            child: Column(
-              children: [
-                Padding(
-                  padding: EdgeInsets.only(top: 16),
-                  child: Image.asset(imagePath, fit: BoxFit.cover, height: 50, width: 50),
-                ),
-                Padding(
-                  padding: EdgeInsets.only(top: 20.0),
-                  child: Text(subtitle, style: TextStyle(fontSize: 16, color: Colors.white)),
-                ),
-              ],
-            ),
-         ),
-     );
+          ],
+        ),
+      ),
+    );
   }
 }
